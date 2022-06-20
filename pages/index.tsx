@@ -9,6 +9,7 @@ const IndexPage = () => (
         <a>About</a>
       </Link>
     </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ad tempora impedit, sed blanditiis, commodi dolorum soluta quas sint, doloribus vel ut velit dolorem vitae facere magni sit esse officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil obcaecati voluptas cum velit iusto odio expedita consectetur autem, nesciunt eum numquam optio, minima similique dolorem repellat, earum fugit. Quis, commodi.</p>
   </Layout>
 );
 
