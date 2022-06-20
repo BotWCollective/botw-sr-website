@@ -7,7 +7,7 @@ A Breath of the Wild speedrunning website because speedrun.com is bad
 - [ ] Main Page
   - [ ] Design
 - [ ] Leaderboard
-  - [ ] Design
+  - [X] Design
   - [ ] Data Fetching from speedrun.com
   - [ ] Dropdown Menus for Runs
 - [ ] Player Pages
