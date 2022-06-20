@@ -6,7 +6,7 @@ A Breath of the Wild speedrunning website because speedrun.com is bad
   - [x] Languages: React (Typescript), SCSS
   - [ ] Colour Scheme
   - [ ] Layout
-- [ ] Decide on Backend Language
+- [x] Decide on Backend Language(Rust)
 - [ ] Main Page
 - [ ] Leaderboard
   - [ ] Data Fetching from speedrun.com
