@@ -15,7 +15,7 @@ const IndexPage = () => (
       </Link>
     </p>
     <ButtonPrimary href="#">Login</ButtonPrimary>
-    <Card heading="Any%" link="View Category">Defeat Calamity Ganon from a New Game as fast as possible. Defeat Calamity Ganon from a New Game as fast as possible.</Card>
+    <Card heading="Any%" link="View Category">Defeat Calamity Ganon from a New Game as fast as possible.</Card>
   </Layout>
 );
 
