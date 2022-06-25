@@ -1,0 +1,36 @@
+.nav {
+  width: 100%;
+  background-color: var(--clr-grey-800);
+  color: var(--clr-grey-100);
+  font-size: var(--fs-fixed-600);
+
+  &_container {
+    margin: 0 auto;
+    max-width: 75em;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+
+    &_main {
+      display: flex;
+      justify-content: center;
+
+      a {
+        color: inherit;
+        padding: 1em 0.5em;
+        margin: 0 0.5em;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0.5em;
+          left: 0;
+          width: 100%;
+          height: 0.35em;
+          border-radius: 1em;
+          background-color: var(--clr-grey-100-15);
+        }
+      }
+    }
+  }
+}

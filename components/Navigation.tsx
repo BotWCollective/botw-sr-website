@@ -1,10 +1,16 @@
 import styles from "./Navigation.module.scss";
-import svg_mode_dark from "../public/images/dark_mode.svg";
-import svg_mode_light from "../public/images/light_mode.svg";
 
 const Navigation = () => (
   <nav className={styles.nav}>
-    <img src={svg_mode_dark} alt="Dark Mode" className={styles.nav_themeToggle}/>
+    <div className={styles.nav_container}>
+      <div className={styles.nav_container_logo}></div>
+      <div className={styles.nav_container_main}>
+        <a href="#">Home</a>
+        <a href="#">Leaderboards</a>
+        <a href="#">Resources</a>
+      </div>
+      <div className={styles.nav_container_other}></div>
+    </div>
   </nav>
 );
 

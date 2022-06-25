@@ -21,5 +21,13 @@
     &_right {
       text-align: right;
     }
+
+    a {
+      transition: color 100ms ease;
+
+      &:hover {
+        color: var(--clr-blue-400);
+      }
+    }
   }
 }

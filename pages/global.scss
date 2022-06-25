@@ -40,7 +40,6 @@
 
 
 :root {
-  //pig with disease right?
   --clr-accent-400: hsl(37, 98%, 53%);
   --clr-accent-500: hsl(32, 98%, 53%);
 
@@ -54,8 +53,8 @@
   --clr-grey-100-60: hsla(0, 0%, 93%, 60%);
   --clr-grey-100-15: hsla(0, 0%, 93%, 15%);
 
-  --clr-blue-500: hsl(220, 100%, 60%);
-
+  --clr-blue-500: hsl(230, 100%, 65%);
+  --clr-blue-400: hsl(230, 100%, 75%);
 
   --fw-normal: 400;
   --fw-bold: 700;
@@ -66,6 +65,7 @@ body {
   --fs-variable-500: clamp(0.9rem, 1.2vw, 1.2rem);
   --fs-variable-600: clamp(1.2rem, 1.8vw, 1.6rem);
   --fs-fixed-700: 2rem;
+  --fs-fixed-600: 1.4rem;
   --fs-fixed-500: 1.1rem;
 
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
