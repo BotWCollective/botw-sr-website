@@ -1,0 +1,25 @@
+.footer {
+  margin-top: 5em;
+
+  &_grid {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1fr 1fr;
+    padding: 4em 6em;
+    background-color: var(--clr-grey-800);
+    color: var(--clr-grey-100);
+  
+    h3 {
+      padding-bottom: 0.8em;
+      padding-top: 0.5em;
+    }
+  
+    p {
+      padding-bottom: 0.6em;
+    }
+  
+    &_right {
+      text-align: right;
+    }
+  }
+}

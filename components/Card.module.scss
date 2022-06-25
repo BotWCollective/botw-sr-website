@@ -1,0 +1,65 @@
+.card {
+  width: 13em;
+  background-color: var(--clr-grey-800);
+  color: var(--clr-grey-100);
+
+  margin: 3em;
+  border-radius: 1em;
+  height: 16em;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(var(--clr-grey-100-20), var(--clr-grey-100-20)), url(../public/images/BotW_Link.webp);
+  background-size: 100%, 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &_heading {
+    padding: 1em 1.5em 0;
+
+    h3 {
+      text-align: center;
+      font-size: var(--fs-fixed-700);
+      position: relative;
+      
+      &::before {
+        content: url(../public/images/Bow_of_Light.png);
+        padding-right: 0.5em;
+        vertical-align: -0.35em;
+      }
+    }
+  }
+
+  &_content {
+    padding: 0 1.5em;
+    display: grid;
+    grid-template-rows: fit-content 1fr;
+    max-height: 10em;
+
+    a {
+      margin: 0 auto;
+      font-size: var(--fs-fixed-500);
+    }
+
+    p {
+      margin: 1em 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  > div {
+    background-color: var(--clr-grey-800-60);
+    transition: transform 300ms ease,
+                background-color 300ms ease;
+    transform: translateY(11.6em);
+    height: 100%;
+  }
+
+  &:hover > div,
+  &:focus > div {
+    transform: translateY(0);
+    background-color: var(--clr-grey-800);
+  }
+}
