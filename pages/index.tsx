@@ -11,7 +11,7 @@ const IndexPage = () => (
         <a>About</a>
       </Link>
       <Link href="/guides">
-        <a>guides</a>
+        <a>Guides</a>
       </Link>
     </p>
     <ButtonPrimary href="#">Login</ButtonPrimary>
