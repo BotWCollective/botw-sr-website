@@ -35,18 +35,16 @@
           transform: scaleX(1);
         }
       }
+
+      &.active::after {
+        background-color: var(--clr-accent-400);
+        transform: scaleX(1);
+      }
     }
 
     &_main {
       display: flex;
       justify-content: center;
-
-      a {
-        &:first-of-type::after {
-          background-color: var(--clr-accent-400);
-          transform: scaleX(1);
-        }
-      }
     }
 
     &_other {
