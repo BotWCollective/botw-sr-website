@@ -1,6 +1,6 @@
 .card {
   width: 13em;
-  background-color: var(--clr-grey-800);
+  background-color: var(--clr-grey-900);
   color: var(--clr-grey-100);
 
   margin: 3em;
@@ -8,7 +8,7 @@
   height: 16em;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(var(--clr-grey-100-20), var(--clr-grey-100-20)), url(../public/images/BotW_Link.webp);
+  background-image: linear-gradient(var(--clr-grey-100-15), var(--clr-grey-100-15)), url(../public/images/BotW_Link.webp);
   background-size: 100%, 90%;
   background-position: center;
   background-repeat: no-repeat;
