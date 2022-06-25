@@ -8,3 +8,10 @@ export type User = {
   id: number
   name: string
 }
+
+export type Note = {
+  id: number,
+  video_id: number,
+  text: string,
+  time: number,
+}

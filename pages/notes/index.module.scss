@@ -1,0 +1,86 @@
+.columns {
+    display: flex;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.15em 1.0em;
+    border: 0.1em solid #000000;
+    margin: 0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    color: #000000;
+    text-align:center;
+    border-radius: 0.12em;
+}
+
+.button:hover {
+    color: #000000;
+    background-color: #eeeeee;
+}
+
+.video_load {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.video_current {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video_control {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.new_note {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.current_notes {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+    overflow-y: scroll;
+    max-height: calc(70vh);
+}
+
+.current_notes  ul  li {
+    list-style-type: none;
+}
+
+.current_notes_notes {
+    height: calc(100% - 5em);
+}
+
+.notes {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 0.2em;
+}
+
+.button_row {
+    display: flex;
+}
