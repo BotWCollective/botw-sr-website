@@ -1,59 +1,92 @@
+/* inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../public/fonts/inter-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../public/fonts/inter-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* inter-700 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../public/fonts/inter-v11-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../public/fonts/inter-v11-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* inter-900 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+       url('../public/fonts/inter-v11-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../public/fonts/inter-v11-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* atkinson-hyperlegible-regular - latin */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../public/fonts/atkinson-hyperlegible-v9-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../public/fonts/atkinson-hyperlegible-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
 :root {
-  --clr-accent: hsl(37, 98%, 53%);
+  --clr-accent-400: hsl(37, 98%, 53%);
+  --clr-accent-500: hsl(32, 98%, 53%);
 
-  --clr-grey-100: hsl(0, 0%, 7%);
-  --clr-grey-200: hsl(0, 0%, 20%);
-  --clr-grey-300: hsl(0, 0%, 41%);
-  --clr-grey-400: hsl(0, 0%, 87%);
-  --clr-grey-500: hsl(0, 0%, 93%);
-  // z2w is smelly
+  --clr-grey-900: hsl(0, 0%, 7%);
+  --clr-grey-800: hsl(0, 0%, 20%);
+  --clr-grey-700: hsl(0, 0%, 41%);
+  --clr-grey-200: hsl(0, 0%, 87%);
+  --clr-grey-100: hsl(0, 0%, 93%);
+
+  --clr-grey-800-60: hsla(0, 0%, 20%, 60%);
+  --clr-grey-100-60: hsla(0, 0%, 93%, 60%);
+  --clr-grey-100-20: hsla(0, 0%, 93%, 20%);
+
+  --clr-blue-500: hsl(220, 100%, 60%);
+
+
+  --fw-normal: 400;
+  --fw-bold: 700;
+  --fw-black: 900;
 }
 
-.Header{
-  background-color: hsl(223, 51%, 51%);
-  color: hsl(0, 0%, 100%);
-  text-align: center;
-  margin-top: 2cm;
-  margin-top: 2em;
-  margin-left: 5em;
-  margin-right: 5em;
-  padding: 1.5em;
-// pika smells like cheese
+body {
+  --fs-variable-500: clamp(0.9rem, 1.2vw, 1.2rem);
+  --fs-variable-600: clamp(1.2rem, 1.8vw, 1.6rem);
+  --fs-fixed-700: 2rem;
+  --fs-fixed-500: 1.1rem;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  font-size: var(--fs-variable-500);
+  line-height: 1.4;
+
+  position: relative;
+  color: var(--clr-grey-100);
+  background-color: var(--clr-grey-700);
 }
 
-.paragraph1{
-  text-align:left;
-  margin-left: 9em;
-  margin-right: 9em;
-  margin-top: 5em;
+h3 {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-variable-600);
 }
 
-.navigationLinks{
-  background-color: rgb(0, 0, 0);
-  margin-top: 5em;
-  margin-left: 40em;
-  margin-right: 40em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  border-style: solid;
-  border-color:hsl(0, 0%, 87%);
-  border-width: 0.2em;
-  
-  .li{
-    color:hsl(0, 0%, 100%) ;
-  }
-  a:link{
-    color: hsl(0, 0%, 100%);
-    text-decoration: none;
-    position: relative;
-    left: 0.5rem;
-  }
-  a:visited{
-    color: hsl(0, 0%, 100%);
-    text-decoration: none;
-  }
-  a:hover{
-    text-decoration: underline;
-  }
+a {
+  text-decoration: none;
+  color: var(--clr-blue-500);
+  font-weight: var(--fw-bold);
+}
 
+p {
+  font-family: 'Atkinson Hyperlegible', 'Inter', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
