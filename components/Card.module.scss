@@ -1,11 +1,11 @@
 .card {
-  width: 13em;
+  width: 15rem;
   background-color: var(--clr-grey-900);
   color: var(--clr-grey-100);
 
   margin: 3em;
   border-radius: 1em;
-  height: 16em;
+  height: 19rem;
   position: relative;
   overflow: hidden;
   background-image: linear-gradient(var(--clr-grey-100-15), var(--clr-grey-100-15)), url(../public/images/BotW_Link.webp);
@@ -53,7 +53,7 @@
     background-color: var(--clr-grey-800-60);
     transition: transform 300ms ease,
                 background-color 300ms ease;
-    transform: translateY(11.6em);
+    transform: translateY(14rem);
     height: 100%;
   }
 
