@@ -7,3 +7,52 @@
   --clr-grey-400: hsl(0, 0%, 87%);
   --clr-grey-500: hsl(0, 0%, 93%);
 }
+
+.Header{
+  background-color: hsl(223, 51%, 51%);
+  color: hsl(0, 0%, 100%);
+  text-align: center;
+  margin-top: 2cm;
+  margin-top: 2em;
+  margin-left: 5em;
+  margin-right: 5em;
+  padding: 1.5em;
+
+}
+
+.paragraph1{
+  text-align:left;
+  margin-left: 9em;
+  margin-right: 9em;
+  margin-top: 5em;
+}
+
+.navigationLinks{
+  background-color: rgb(209, 68, 68);
+  margin-top: 5em;
+  margin-left: 40em;
+  margin-right: 40em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-style: solid;
+  border-color:hsl(0, 0%, 87%);
+  border-width: 0.2em;
+  
+  .li{
+    color:hsl(37, 98%, 53%) ;
+  }
+  a:link{
+    color: hsl(37, 98%, 53%);
+    text-decoration: none;
+    position: relative;
+    left: 0.5rem;
+  }
+  a:visited{
+    color: hsl(37, 98%, 53%);
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+
+}
