@@ -1,4 +1,4 @@
-import ButtonPrimary from './ButtonPrimary';
+import Button from './ButtonPrimary';
 import styles from './Card.module.scss';
 
 type Props = {
@@ -17,7 +17,7 @@ const Card = ({heading, children, link}: Props) => (
       </div>
       <div className={styles.card_content}>
         <p>{children}</p>
-        <ButtonPrimary>{link}</ButtonPrimary>
+        <Button>{link}</Button>
       </div>
     </div>
   </div>
