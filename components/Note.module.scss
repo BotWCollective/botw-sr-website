@@ -1,0 +1,46 @@
+.noteitem {
+		border: 1px solid #e0e0e0;
+    border-radius: 0.30em;
+    background: #f0f0f0;
+    padding: 0.15em 0.5em;
+    margin: 0.15em;
+    position: relative;
+}
+
+.noteitem:hover {
+    background: #e0e0e0;
+}
+
+.time {
+    display: inline;
+    padding: 0;
+}
+
+.text {
+    inline-size: 15em;
+    margin-right: 0.5em;
+    overflow-wrap: break-word;
+    hyphens: manual;
+    white-space: pre-wrap;
+    overflow-y: scroll;
+    max-height: 4em;
+}
+
+.remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 0.1em;
+    padding-top: 0;
+    display: block;
+}
+
+.noteitemid {
+    display: block;
+    font-size: 0.7em;
+    padding: 0;
+    text-align: right;
+    &_li {
+        list-style-type: none;
+    }
+}

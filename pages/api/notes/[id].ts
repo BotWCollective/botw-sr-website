@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import fs from 'fs';
 
-import { db, notes_read, notes_delete } from './index.ts';
+import { notes_read, notes_delete } from '../../../collections/Notes.ts';
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   try {
