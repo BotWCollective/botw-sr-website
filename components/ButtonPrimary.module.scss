@@ -1,0 +1,14 @@
+.button {
+  color: var(--clr-grey-100);
+  background-color: var(--clr-accent-400);
+  padding: 0.35em 1.4em;
+  border-radius: 0.6em;
+  font-weight: var(--fw-bold);
+  transition: background-color 100ms ease;
+  display: block;
+  width: fit-content;
+
+  &:hover, &:focus {
+    background-color: var(--clr-accent-500);
+  }
+}
