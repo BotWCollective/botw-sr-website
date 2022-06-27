@@ -5,7 +5,7 @@ type Props = {
   children?: string
 }
 
-const Banner =({children,}: Props) => (
+const Banner =({children}: Props) => (
   <div className= {styles.Banner}>
     <div className={styles.pageName}>
       <h1>{children}</h1>
