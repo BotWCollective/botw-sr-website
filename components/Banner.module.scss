@@ -1,0 +1,20 @@
+.Banner{
+  color: var(--clr-grey-100);
+  width: 100%;
+  aspect-ratio: 4/1;
+  background-image:url(../public/images/tempBanner.jpg) ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%,;
+}
+
+.pageName{
+  font-size: 1.7rem;
+  font-weight: bold;
+  position: relative;
+  top: 40vh;
+  margin-left: 85vw;
+  margin-right: 4vw;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
