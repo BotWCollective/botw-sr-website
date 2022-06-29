@@ -7,9 +7,9 @@ const Navigation = () => (
     <div className={styles.nav_container}>
       <div className={styles.nav_container_logo}></div>
       <div className={styles.nav_container_main}>
-        <a href="#">Home</a>
+        <a href="/">Home</a>
         <a href="#">Leaderboards</a>
-        <a href="#">Resources</a>
+        <a href="guides">Resources</a>
       </div>
       <div className={styles.nav_container_other}>
         <button>{theme_toggle}</button>

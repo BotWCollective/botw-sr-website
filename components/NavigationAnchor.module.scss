@@ -1,0 +1,28 @@
+.NavigationAnchor{
+  width: max-content;
+  height: max-content;
+  font-size: 1.1rem;
+  background-color: var(--clr-grey-850);
+  padding-right: 1em;
+  border-color:var(--clr-grey-100) ;
+  border-style: solid;
+  border-width: thin;
+  position: sticky;
+  top: 4.3em;
+  // 4.3 so the navigation box lines up under the navigation bar which is also sticky (I wasn't sure if there was a better way to line them up than using ems)
+  z-index: 1;
+
+
+  a:link{
+    color: var(--clr-grey-100);
+    font-weight: normal;
+  }
+  a:visited{
+    color: var(--clr-grey-100);
+    font-weight: normal;
+  }
+
+  a:hover{
+    border-bottom-style: solid;
+  }
+}
