@@ -9,7 +9,7 @@ const navLinks = [
   {title: "Home", path: "/"},
   {title: "Leaderboards", path: "/leaderboards"},
   {title: "Resources", path: "/resources"},
-]
+];
 
 const Navigation = () => (
   <nav className={styles.nav}>

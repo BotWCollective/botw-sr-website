@@ -1,4 +1,7 @@
 .card {
+  --background-image: url("../public/images/BotW_Link.webp");
+  --heading-icon: url("../public/images/Bow_of_Light.png");
+
   width: 15rem;
   background-color: var(--clr-grey-900);
   color: var(--clr-grey-100);
@@ -8,7 +11,7 @@
   height: 19rem;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(var(--clr-grey-100-15), var(--clr-grey-100-15)), url(../public/images/BotW_Link.webp);
+  background-image: linear-gradient(var(--clr-grey-100-15), var(--clr-grey-100-15)), var(--background-image, url("../public/images/BotW_Link.webp"));
   background-size: 100%, 90%;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,7 +25,7 @@
       position: relative;
       
       &::before {
-        content: url(../public/images/Bow_of_Light.png);
+        content: var(--heading-icon, url("../public/images/Bow_of_Light.png"));
         padding-right: 0.5em;
         vertical-align: -0.35em;
       }
