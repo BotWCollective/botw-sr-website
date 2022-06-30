@@ -1,15 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { users_all, users_create_return_obj } from '../../../collections/Users'
-import { loginRequired } from '../../../lib/loggedin'
+import { roles_all, roles_create_return_obj } from '../../../collections/Roles.ts'
+import { loginRequired } from '../../../lib/loggedin';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  await loginRequired(req, res, ['admin'])
-
+  await loginRequired(req, res, ['admin']);
   try {
     if (req.method === "GET") {
-      res.status(200).json(users_all());
+      res.status(200).json(roles_all());
     } else if (req.method === "POST") {
-      res.status(200).json(users_create_return_obj(req.body));
+      res.status(200).json(roles_create_return_obj(req.body.rolename));
     }
   } catch (err: any) {
     res.status(500).json({ statusCode: 500, message: err.message })

@@ -1,11 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { notes_table, notes_all, notes_create_return_obj } from '../../../collections/Notes.ts'
+import { notes_query, notes_create_return_obj } from '../../../collections/Notes.ts'
+import { loginRequired } from '../../../lib/loggedin'
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (req.method === "GET") {
-      res.status(200).json(notes_all());
+      if (req.query.q === undefined) {
+        res.status(200).json([]);
+      } else {
+        res.status(200).json(notes_query(req.query.q))
+      }
     } else if (req.method === "POST") {
+      await loginRequired(req, res, ['editor']);
       res.status(200).json(notes_create_return_obj(req.body));
     }
   } catch (err: any) {

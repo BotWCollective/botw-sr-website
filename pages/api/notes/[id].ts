@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import fs from 'fs';
+import { notes_read, notes_delete } from '../../../collections/Notes';
+import { loginRequired } from '../../../lib/loggedin'
 
-import { notes_read, notes_delete } from '../../../collections/Notes.ts';
-
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const id = Number(req.query.id);
     if (req.method === "GET") {
       res.status(200).json(notes_read(id))
     } else if (req.method === "DELETE") {
+      await loginRequired(req, res, ['editor']);
       res.status(200).json(notes_delete(id));
     }
   } catch (err: any) {
