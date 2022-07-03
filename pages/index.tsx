@@ -14,8 +14,8 @@ const IndexPage = () => (
         <a>Guides</a>
       </Link>
     </p>
-    <ButtonPrimary href="#">Login</ButtonPrimary>
-    <Card heading="Any%" link="View Category">Defeat Calamity Ganon from a New Game as fast as possible.</Card>
+    <ButtonPrimary href="/leaderboards">Login</ButtonPrimary>
+    <Card heading="Any%" link="View Category" href="/leaderboards" backgroundImage='/images/BotW_Link.webp' headingIcon='/images/Bow_of_Light.png'>Defeat Calamity Ganon from a New Game as fast as possible.</Card>
   </Layout>
 );
 
