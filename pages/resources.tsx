@@ -6,7 +6,7 @@ import NavigationAnchor from '../components/SideNav';
 
 const GuidesPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <Banner>Guides</Banner>
+    <Banner>Resources</Banner>
     <NavigationAnchor list1='General tips' list2='Game mechanics' list3='Category specific resources' list4='Glitches'></NavigationAnchor>
     <h1>Hehehaha</h1>
     <Button>eat my</Button>
