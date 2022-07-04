@@ -8,9 +8,9 @@
     margin: 0 auto;
     max-width: 75em;
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 250px 1fr 250px;
 
-    a {
+    a:not(.nav_container_logo_link) {
       color: inherit;
       padding: 1em 0.5em;
       margin: 0 0.5em;
@@ -26,7 +26,7 @@
         border-radius: 1em;
         background-color: var(--clr-grey-100-15);
         transform: scaleX(0);
-        transition: transform 300ms ease;
+        transition: transform 150ms ease;
       }
 
       &:hover,
@@ -35,29 +35,40 @@
           transform: scaleX(1);
         }
       }
+
+      &.active::after {
+        background-color: var(--clr-accent-400);
+        transform: scaleX(1);
+      }
     }
 
     &_main {
       display: flex;
       justify-content: center;
-
-      a {
-        &:first-of-type::after {
-          background-color: var(--clr-accent-400);
-          transform: scaleX(1);
-        }
-      }
     }
 
     &_other {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr; 
+      grid-template-columns: 1fr max-content;
       align-items: center;
       text-align: center;
 
       svg {
         fill: currentColor;
         padding-top: 0.2em;
+      }
+    }
+
+    &_logo {
+      width: 100%;
+      height: auto;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      padding: 0 0.5em 0.3em;
+
+      img {
+        max-width: 10em;
       }
     }
   }

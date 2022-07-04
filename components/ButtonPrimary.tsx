@@ -1,4 +1,5 @@
 import styles from './ButtonPrimary.module.scss';
+import Link from 'next/link';
 
 type Props = {
   children?: string
@@ -6,7 +7,7 @@ type Props = {
 }
 
 const ButtonPrimary = ({children, href = "#"}: Props) => (
-  <a href={href} className={styles.button}>{children}</a>
+  <Link href={href}><a className={styles.button}>{children}</a></Link>
 );
 
 export default ButtonPrimary;

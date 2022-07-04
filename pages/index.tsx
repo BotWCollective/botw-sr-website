@@ -6,22 +6,20 @@ import ButtonPrimary from '../components/ButtonPrimary';
 import Card from '../components/Card';
 
 const IndexPage = () => {
-    const user = useUser({});
-    return (
-        <Layout title="Home | Next.js + TypeScript Example" user={user}>
-          <h1>Hello Next.js 👋</h1>
-          <p>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-            <Link href="/guides">
-              <a>Guides</a>
-            </Link>
-          </p>
-          <ButtonPrimary href="/login">Login</ButtonPrimary>
-          <Card heading="Any%" link="View Category">Defeat Calamity Ganon from a New Game as fast as possible.</Card>
-        </Layout>
-    )
-}
+  const user = useUser({});
+  <Layout title="Home | Next.js + TypeScript Example" user={user}>
+    <h1>Hello Next.js 👋</h1>
+    <p>
+      <Link href="/about">
+        <a>About</a>
+      </Link>
+      <Link href="/guides">
+        <a>Guides</a>
+      </Link>
+    </p>
+    <ButtonPrimary href="/login">Login</ButtonPrimary>
+    <Card heading="Any%" link="View Category" href="/leaderboards" backgroundImage='/images/BotW_Link.webp' headingIcon='/images/Bow_of_Light.png'>Defeat Calamity Ganon from a New Game as fast as possible.</Card>
+  </Layout>
+};
 
 export default IndexPage;
