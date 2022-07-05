@@ -4,28 +4,8 @@ import User from '../models/User.ts'
 
 import { v4 as uuidv4 } from 'uuid'
 
-function tables() {
-  const stmt = db.prepare(`create table if not exists users (
-    id text,
-    username text,
-    hash text,
-    salt text,
-    created text
-   );
-   create table if not exists roles (
-     id text,
-     rolename text
-   );
-   create table if not exists user_roles (
-     user_id text,
-     role_id text
-   );
-
-`)
-}
-
 export function users_create(user: User) {
-  const stmt = db.prepare(`INSERT into users (id, username, hash, salt, created) VALUES (@id, @username, @hash, @salt, @created)`);
+  const stmt = db.prepare(`INSERT into users (id, username, created, provider, token) VALUES (@id, @username, @created, @provider, @token)`);
   return stmt.run(user);
 }
 
@@ -34,14 +14,19 @@ export function users_create_return_obj(user: User) {
   return users_read(user.username);
 }
 
+export function users_set_token(username: string, token: string) {
+  const stmt = db.prepare(`UPDATE users SET token = @token where username = @username`);
+  return stmt.run({ username, token });
+}
+
 export function users_read(username: string) {
   const stmt = db.prepare(`SELECT users.*, json_group_array(rolename) as roles
            from users
              left join user_roles on user_roles.user_id = users.id
              left join roles on roles.id = user_roles.role_id
-           where username = ?;
+           where username = @username group by username
            `);
-  const user = stmt.get(username);
+  let user = stmt.get({ username });
   if (user && user.roles) {
     user.roles = roles_as_json(user.roles);
   }

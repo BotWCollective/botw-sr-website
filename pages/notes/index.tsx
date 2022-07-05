@@ -142,7 +142,7 @@ function Notes() {
                 setVideos(data);
             })
             .catch((error) => {
-                console.log(error.toString());
+                console.error(error.toString());
             });
     }
     

@@ -4,12 +4,16 @@ import Banner from '../components/Banner';
 import Button from '../components/ButtonPrimary';
 import Card from '../components/Card'
 
-const GuidesPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
+const GuidesPage = ({user}) => (
+  <Layout title="Fort Hateno: Guides" user={user}>
     <Banner>Guides</Banner>
     <h1>Hehehaha</h1>
     <Button>eat my</Button>
   </Layout>
 );
-  
+
+
+import  getServerSideProps  from "../lib/serverProps";
+export { getServerSideProps };
+
 export default GuidesPage;

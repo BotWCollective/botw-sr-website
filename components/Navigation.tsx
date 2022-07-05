@@ -24,15 +24,15 @@ const Navigation = ({user}) => {
       </div>
       <div className={styles.nav_container_main}>
         {navLinks.map((link) => (
-          <Link href={link.path} passHref>
-            <a className={useRouter().pathname === link.path ? styles.active : ""}>{link.title}</a>
+            <Link key={link.path} href={link.path} passHref>
+            <a key={link.path} className={useRouter().pathname === link.path ? styles.active : ""}>{link.title}</a>
           </Link>
         ))}
       </div>
       <div className={styles.nav_container_other}>
         <button>{theme_toggle}</button>
         {user && <a href="/profile">Profile</a> }
-        {user && <a href="/api/logout">Log Out</a> }
+        {user && <a href="/api/auth/logout">Log Out</a> }
         {!user && <a href="/login">Log In</a> }
       </div>
     </div>

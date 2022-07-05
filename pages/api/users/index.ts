@@ -8,8 +8,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (req.method === "GET") {
       res.status(200).json(users_all());
-    } else if (req.method === "POST") {
-      res.status(200).json(users_create_return_obj(req.body));
     }
   } catch (err: any) {
     res.status(500).json({ statusCode: 500, message: err.message })

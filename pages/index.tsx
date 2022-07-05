@@ -5,9 +5,9 @@ import Layout from '../components/Layout';
 import ButtonPrimary from '../components/ButtonPrimary';
 import Card from '../components/Card';
 
-const IndexPage = () => {
-  const user = useUser({});
-  <Layout title="Home | Next.js + TypeScript Example" user={user}>
+const IndexPage = ({user}) => {
+    return (
+    <Layout title="Fort Hateno: Hylian Collective" user={user}>
     <h1>Hello Next.js 👋</h1>
     <p>
       <Link href="/about">
@@ -19,7 +19,11 @@ const IndexPage = () => {
     </p>
     <ButtonPrimary href="/login">Login</ButtonPrimary>
     <Card heading="Any%" link="View Category" href="/leaderboards" backgroundImage='/images/BotW_Link.webp' headingIcon='/images/Bow_of_Light.png'>Defeat Calamity Ganon from a New Game as fast as possible.</Card>
-  </Layout>
+    </Layout>
+    );
 };
+
+import  getServerSideProps  from "../lib/serverProps";
+export { getServerSideProps };
 
 export default IndexPage;

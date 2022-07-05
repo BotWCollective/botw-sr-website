@@ -16,9 +16,9 @@ create table if not exists videos (
 create table if not exists users (
   id text unique,
   username text unique,
-  hash text,
-  salt text,
-  created text
+  created text,
+  provider text,
+  token text unique
 );
 create table if not exists roles (
   id text unique,
@@ -73,7 +73,6 @@ CREATE TRIGGER notes_after_insert
 --- Roles
 insert into roles (id, rolename) VALUES ('1a891159-ab3e-4be6-8f03-577261cc78c9', 'kilton');
 insert into roles (id, rolename) VALUES ('cbca822f-3342-43a8-a3c7-cc364bdb82de', 'chuchu');
-
 
 --- Data
 
