@@ -3,32 +3,6 @@ import { db } from './db.ts'
 import Note from '../models/Note.ts'
 
 
-// function tables() {
-//   const stmt = db.prepare(`create table if not exists notes (
-//     id integer primary key autoincrement,
-//     text text not null,
-//     time real not null,
-//     video_id text not null,
-//     run_id text
-// );
-//     CREATE VIRTUAL TABLE if not exists notes_fts using fts5(content="", text, video_id, run_id);
-// `);
-//   stmt.run([]);
-//   const notes = notes_size();
-//   if (notes.size == 0) {
-//     notes_initial_data();
-//     //db.exec(`INSERT into notes_fts(rowid, text, video_id, run_id) SELECT id, text, video_id, run_id from notes `);
-//   }
-// }
-// function notes_size() {
-//   const stmt = db.prepare(`SELECT COUNT(*) as size from notes`);
-//   return stmt.get([]);
-// }
-// function notes_initial_data() {
-//   let items: any = JSON.parse(fs.readFileSync('./notes.json', 'utf8'));
-//   items.forEach(notes_create);
-// }
-
 export function notes_read(id: number): Note[] {
   const stmt = db.prepare(`SELECT * from notes where id = @id`);
   return stmt.all({ id: id });

@@ -2,7 +2,7 @@ import { useUser } from '../lib/hooks'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 
-async function ubu(url, method, data={}) {
+async function fetcher(url, method, data={}) {
     try {
         const options = gen_options(method, data);
         const res = await fetch(url, options);
@@ -32,12 +32,12 @@ const Roles = () => {
     const [error, setError] = useState('');
 
     const updateRoleData = async() => {
-        const {data: data, error: err} = await ubu('/api/roles','GET');
+        const {data: data, error: err} = await fetcher('/api/roles','GET');
         if(err) { setError(err); }
         if(data) { setRoleData(data); }
     }
     const updateUserData = async() => {
-        const {data: data, error: err} = await ubu('/api/users','GET');
+        const {data: data, error: err} = await fetcher('/api/users','GET');
         if(err) { setError(err); }
         if(data) { setUserData(data); }
     }
@@ -48,16 +48,16 @@ const Roles = () => {
     }, [])
 
     const removeRole = async (event: any, role: any) => {
-        const out = await ubu(`/api/roles/${role.id}`, 'DELETE');
+        const out = await fetcher(`/api/roles/${role.id}`, 'DELETE');
         updateRoleData();
     };
     const addRole = async (event: any) => {
         const rolename = document.querySelector('#add_rolename').value;
-        const out = await ubu('/api/roles', 'POST', {rolename: rolename })
+        const out = await fetcher('/api/roles', 'POST', {rolename: rolename })
         updateRoleData();
     };
     const addRoleToUser = async (event: any, user: any) => {
-        const out = await ubu(`/api/users/${user.id}`, 'POST', {
+        const out = await fetcher(`/api/users/${user.id}`, 'POST', {
             username: user.username,
             rolename: event.target.id,
             action: 'USER_ADD_ROLE',
@@ -65,7 +65,7 @@ const Roles = () => {
         updateUserData();
     };
     const removeRoleFromUser = async (event: any, user: any, role: any) => {
-        const out = await ubu(`/api/users/${user.id}`, 'DELETE', {
+        const out = await fetcher(`/api/users/${user.id}`, 'DELETE', {
             username: user.username,
             rolename: role,
             action: 'USER_REMOVE_ROLE',

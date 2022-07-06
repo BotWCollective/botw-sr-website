@@ -10,7 +10,7 @@ if (!TOKEN_SECRET) {
   process.exit(-1)
 }
 
-export async function setLoginSession(res, session) {
+async function setLoginSession(res, session) {
   const createdAt = Date.now()
   // Create a session object with a max age that we can validate later
   const obj = { ...session, createdAt, maxAge: MAX_AGE }
@@ -18,7 +18,7 @@ export async function setLoginSession(res, session) {
   setTokenCookie(res, token)
 }
 
-export async function getLoginSession(req) {
+async function getLoginSession(req) {
   const token = getTokenCookie(req)
 
   if (!token) return
@@ -33,3 +33,8 @@ export async function getLoginSession(req) {
 
   return session
 }
+
+export {
+  setLoginSession,
+  getLoginSession,
+};

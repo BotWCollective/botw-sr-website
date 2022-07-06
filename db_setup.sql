@@ -71,8 +71,9 @@ CREATE TRIGGER notes_after_insert
 
 
 --- Roles
-insert into roles (id, rolename) VALUES ('1a891159-ab3e-4be6-8f03-577261cc78c9', 'kilton');
-insert into roles (id, rolename) VALUES ('cbca822f-3342-43a8-a3c7-cc364bdb82de', 'chuchu');
+insert into roles (id, rolename) VALUES ('1a891159-ab3e-4be6-8f03-577261cc78c9', 'admin');
+insert into roles (id, rolename) VALUES ('b2c85480-7074-4788-8c4b-d17c4402646c', 'editor');
+
 
 --- Data
 
