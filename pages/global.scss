@@ -56,6 +56,10 @@
   --clr-blue-500: hsl(230, 100%, 65%);
   --clr-blue-400: hsl(230, 100%, 75%);
 
+  --clr-first: var(--clr-accent-400);
+  --clr-second: var(--clr-grey-700);
+  --clr-third: hsl(27, 100%, 35%);
+
   --fw-normal: 400;
   --fw-bold: 700;
   --fw-black: 900;
