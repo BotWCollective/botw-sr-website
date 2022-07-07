@@ -1,0 +1,19 @@
+.run {
+  ul {
+    list-style-type: none;
+  }
+
+  &_summary {
+    ul {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 2em;
+    }
+
+    li {
+      display: block;
+      width: max-content;
+    }
+  }
+}
