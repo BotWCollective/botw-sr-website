@@ -1,4 +1,8 @@
 .run {
+  div {
+    background-color: red;
+  }
+
   ul {
     list-style-type: none;
   }
@@ -6,9 +10,6 @@
   &_summary {
     ul {
       display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      gap: 2em;
     }
 
     li {

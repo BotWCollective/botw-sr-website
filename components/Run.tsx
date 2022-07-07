@@ -33,7 +33,7 @@ export default function Run({position, runnerName, runTime, runDate, verificatio
 
   return (
     <div className={styles.run}>
-      <div className="run_summary">
+      <div className={styles.run_summary}>
         <ul>
           <li>{position}</li>
           <li>{runTime}</li>
@@ -42,12 +42,12 @@ export default function Run({position, runnerName, runTime, runDate, verificatio
           <li><button>{arrowSVG}</button></li>
         </ul>
       </div>
-      <div className="run_extended">
-        <div className="run_extended_video">
+      <div className={styles.run_extended}>
+        <div className={styles.run_extended_video}>
           <iframe src="" frameBorder="0"></iframe>
           <Button>View Run</Button>
         </div>
-        <div className="run_extended_info">
+        <div className={styles.run_extended_info}>
           <ul>
             {variables}
             <li>

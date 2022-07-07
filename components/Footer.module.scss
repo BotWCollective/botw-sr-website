@@ -1,5 +1,7 @@
 .footer {
   margin-top: 5em;
+  position: absolute;
+  inset: auto 0 0;
 
   &_grid {
     display: grid;
