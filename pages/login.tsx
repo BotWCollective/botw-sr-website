@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Link from 'next/link';
 import ButtonPrimary from '../components/ButtonPrimary'
 
-import './fa';
+import '../lib/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Login = ({user}) => {

@@ -8,7 +8,7 @@ import Card from '../components/Card';
 const IndexPage = ({user}) => {
     return (
     <Layout title="Fort Hateno: Hylian Collective" user={user}>
-    <h1>Hello Next.js 👋</h1>
+    <h1>Fort Hateno: Hylian Collective</h1>
     <p>
       <Link href="/about">
         <a>About</a>

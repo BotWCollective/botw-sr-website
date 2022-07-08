@@ -29,12 +29,3 @@ export async function getUser({ username }) {
   return stripUser(user);
 }
 
-// Compare the password of an already fetched user and compare the
-// password for a potential match
-export function validatePassword(user: any, inputPassword: string) {
-  const inputHash = crypto
-    .pbkdf2Sync(inputPassword, user.salt, 1000, 64, 'sha512')
-    .toString('hex')
-  const passwordsMatch = user.hash === inputHash
-  return passwordsMatch
-}

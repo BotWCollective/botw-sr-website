@@ -11,7 +11,6 @@ export async function loginRequired(req: NextApiRequest, res: NextApiResponse, a
   }
   if (allowed_roles.length > 0) {
     const roles = user.roles.filter((role: string) => allowed_roles.includes(role));
-    console.log(user, user.roles, roles.length);
     if (roles.length <= 0) {
       return null;
     }

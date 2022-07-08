@@ -1,3 +1,7 @@
+import type { GetServerSideProps, NextApiRequest, NextApiResponse } from 'next';
+import { asNextApi } from '../lib/serverProps'
+import { loginRequired } from '../lib/loggedin'
+
 import { useUser } from '../lib/hooks'
 import Layout from '../components/Layout'
 import ButtonPrimary from '../components/ButtonPrimary';
@@ -20,11 +24,6 @@ const Profile = ({user}) => {
         </Layout>
     )
 }
-
-import { loginRequired } from '../lib/loggedin'
-import { asNextApi } from '../lib/serverProps'
-
-import type { GetServerSideProps, NextApiRequest, NextApiResponse } from 'next';
 
 
 export async function getServerSideProps(ctx: GetServerSideProps) {
