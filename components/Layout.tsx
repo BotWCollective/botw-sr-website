@@ -5,10 +5,11 @@ import Navigation from "./Navigation"
 
 type Props = {
   children?: ReactNode
-  title?: string
+    title?: string,
+    user: string
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title = 'This is the default title', user }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
@@ -16,7 +17,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <header>
-      <Navigation></Navigation>
+      <Navigation user={user}></Navigation>
     </header>
     {children}
     <Footer></Footer>

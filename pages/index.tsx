@@ -1,11 +1,14 @@
+import { useUser } from '../lib/hooks'
+import { useRouter } from 'next/router'
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import ButtonPrimary from '../components/ButtonPrimary';
 import Card from '../components/Card';
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
+const IndexPage = ({user}) => {
+    return (
+    <Layout title="Fort Hateno: Hylian Collective" user={user}>
+    <h1>Fort Hateno: Hylian Collective</h1>
     <p>
       <Link href="/about">
         <a>About</a>
@@ -14,9 +17,13 @@ const IndexPage = () => (
         <a>Guides</a>
       </Link>
     </p>
-    <ButtonPrimary href="/leaderboards">Login</ButtonPrimary>
+    <ButtonPrimary href="/login">Login</ButtonPrimary>
     <Card heading="Any%" link="View Category" href="/leaderboards" backgroundImage='/images/BotW_Link.webp' headingIcon='/images/Bow_of_Light.png'>Defeat Calamity Ganon from a New Game as fast as possible.</Card>
-  </Layout>
-);
+    </Layout>
+    );
+};
+
+import  getServerSideProps  from "../lib/serverProps";
+export { getServerSideProps };
 
 export default IndexPage;

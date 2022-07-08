@@ -2,6 +2,14 @@
     display: flex;
 }
 
+.twitter_link {
+    height: 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .button {
     display: inline-block;
     padding: 0.15em 1.0em;
@@ -73,6 +81,7 @@
 }
 
 .notes {
+    margin-top: 2em;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-flow: column wrap;

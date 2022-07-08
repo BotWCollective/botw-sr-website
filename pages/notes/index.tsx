@@ -1,13 +1,16 @@
 import Link from 'next/link'
 import NoteItem from '../../components/Note'
+import Layout from '../../components/Layout'
 import { useState, useEffect } from 'react'
 import React from 'react';
-//import dynamic from 'next/dynamic'
-//const ReactPlayer = dynamic(() => import("react-player/youtube"), { ssr: false });
+import { useUser } from '../../lib/hooks'
 import ReactPlayer from 'react-player/youtube';
+
 import styles from './index.module.scss'
 
 function Notes() {
+
+    const user = useUser({ redirectTo: '/', allowed_roles: ['editor'] });
 
     const ref = React.useRef<ReactPlayer>(null);
 
@@ -15,9 +18,10 @@ function Notes() {
     const [isLoading, setLoading] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
     const [videoUrl, setVideoUrl] = useState('');
-    const [videoID, setVideoID] = useState('');
+    const [videoID, setVideoID] = useState({id: '', server: ''});
     const [playing, setPlaying] = useState(false);
     const [hasWindow, setHasWindow] = useState(false);
+    const [videos, setVideos] = useState([]);
 
     const endpoint = '/api/notes'
 
@@ -25,20 +29,39 @@ function Notes() {
         return `https://www.youtube.com/watch?v=${id}`
     }
 
+    // Update video and notes on videoID changes
+    useEffect(() => {
+        if(videoID.server == 'youtube') {
+            setVideoUrl(yturl(videoID.id));
+        }
+        if(videoID.server == 'twitter') {
+            setVideoUrl(videoID.id);
+        }
+        // Update Notes
+        updateData();
+    }, [videoID]);
+
     const loadVideo = async (event: any) => {
         event.preventDefault();
-        setVideoID(event.target.vid.value);
-        setVideoUrl(yturl(event.target.vid.value));
+        loadVideoID(event.target.vid.value, 'youtube');
+    }
+
+    const loadVideoID = async (id: string, server: string) => {
+        setVideoID({id: id, server: server});
     }
 
     const handleSubmit = async (event: any) => {
 
         event.preventDefault()
         // Get data from the form.
-        let time = ref.current.getCurrentTime();
+        let time = 0;
+        if(ref.current) { 
+            time = ref.current.getCurrentTime();
+        }
         const xdata = {
             text: event.target.text.value,
-            video_id: videoID,
+            video_id: videoID.id,
+            server: videoID.server,
             time: time,
         }
         const options = {
@@ -65,11 +88,6 @@ function Notes() {
         }
     }
 
-    const loadVideoID = async (vid: string) => {
-        setVideoID(vid);
-        setVideoUrl(yturl(vid))
-    }
-
     const seek = async (event: any, time: number) => {
         event.preventDefault();
         ref.current.seekTo(time);
@@ -92,12 +110,8 @@ function Notes() {
         ref.current.seekTo(t);
     }
 
-    const url = '/api/notes';
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setHasWindow(true);
-        }
+    const updateData = async() => {
+        const url = `/api/notes/video_id/${videoID.id}`;
         setLoading(true)
         fetch(url)
             .then((res) => {
@@ -113,30 +127,80 @@ function Notes() {
             .catch((error) => {
                 setErrorMsg(error.toString());
             })
+    }
+
+    const updateVideos = async() => {
+        const url = '/api/notes/videos';
+        fetch(url)
+            .then((res) => {
+                if(res.ok) {
+                    return res.json();
+                }
+                throw new Error(`${res.status}: ${res.statusText}`);
+            })
+            .then((data) => {
+                setVideos(data);
+            })
+            .catch((error) => {
+                console.error(error.toString());
+            });
+    }
+    
+    const url = '/api/notes';
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setHasWindow(true);
+        }
+        updateData();
+        updateVideos();
     }, [])
 
     if (errorMsg) return <div>{errorMsg}</div>;
     if (isLoading) return <div>loading...</div>;
     if (!data) return <div> No Data</div>;
+
+    let notes = "No Notes";
+    if(data.length > 0) {
+        notes = data.map((note: any) => (
+            <li key={note.id}>
+              <NoteItem data={note} seek={seek} remove={handleRemove}></NoteItem>
+            </li>))
+    }
+    let player = '';
+    if(hasWindow) {
+        if(videoID.server == 'youtube') {
+            player = (<ReactPlayer url={videoUrl} ref={ref} controls playing={playing} />);
+        }
+        if(videoID.server == 'twitter') {
+            // Twitter content is blocked due to trackers :|
+            const url = `https://twitter.com/user/status/${videoID.id}`;
+            player = ( <div className={styles.twitter_link}><a href={url}>{url}</a></div>)
+        }
+    }
+
+    let output = videos.map((video: any) => {
+            return (
+                <li key={video.video_id}>
+                  <a href="#"
+                     onClick={ ev => loadVideoID(video.video_id, video.server) }
+                    >
+                    {video.text}
+                  </a>
+                </li>
+            )})
+                 
     
     return (
+        <Layout user={user}>
         <div className={styles.notes}>
           <div className={styles.columns}>
             <div className={styles.current_notes}>
               <div className={styles.current_notes_header}><b>Notes</b></div>
-              <ul className={styles.current_notes_notes}>
-                {data.map((note: any) => (
-                <li key={note.id}>
-                  <NoteItem data={note} seek={seek} remove={handleRemove}></NoteItem>
-                </li>))}
-              </ul>
+              <ul className={styles.current_notes_notes}>{notes}</ul>
             </div>
             <div>
-              <div className={styles.player}>{
-                  hasWindow &&
-                      <ReactPlayer url={videoUrl} ref={ref} controls playing={playing} />
-              }
-              </div>
+              <div className={styles.player}>{player}</div>
               <div className={styles.video_current}>
                 <div>Current video '{videoUrl}'</div>
               </div>
@@ -165,13 +229,13 @@ function Notes() {
               </div>
               <div>
                 <ul>
-                  <li><a href="#" onClick={() => loadVideoID("5iVrLMDynsQ")}>5iVrLMDynsQ</a></li>
-                  <li><a href="#" onClick={() => loadVideoID("zFcdS_RDacQ")}>zFcdS_RDacQ</a></li>
+                  {output}
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        </Layout>
     )
 }
 

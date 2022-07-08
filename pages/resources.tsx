@@ -1,9 +1,12 @@
 import Layout from '../components/Layout';
 
-const ResourcesPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
+const ResourcesPage = ({user}) => (
+  <Layout title="Fort Hateno: Resources" user={user}>
     <h1>Resources</h1>
   </Layout>
 );
+
+import  getServerSideProps  from "../lib/serverProps";
+export { getServerSideProps };
 
 export default ResourcesPage;

@@ -1,13 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { sampleUserData } from '../../../utils/sample-data'
+import { users_all, users_create_return_obj } from '../../../collections/Users'
+import { loginRequired } from '../../../lib/loggedin'
 
-const handler = (_req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  await loginRequired(req, res, ['admin'])
+
   try {
-    if (!Array.isArray(sampleUserData)) {
-      throw new Error('Cannot find user data')
+    if (req.method === "GET") {
+      res.status(200).json(users_all());
     }
-
-    res.status(200).json(sampleUserData)
   } catch (err: any) {
     res.status(500).json({ statusCode: 500, message: err.message })
   }
