@@ -3,7 +3,6 @@ import { visit } from 'unist-util-visit'
 
 export default (options: any) => {
   if (!options || !options.video) {
-    //throw Error('Required video option is missing in remark-video configuration')
   }
 
   const isVideo = (node: any) => {
@@ -22,7 +21,6 @@ export default (options: any) => {
     if (groups.length > 0) {
       let secs = 0;
       const m = groups[0];
-      console.log(m);
       if (m[5]) { // only a number
         secs = parseInt(m[5]);
       } else {
@@ -42,16 +40,17 @@ export default (options: any) => {
   }
   const visitor = (node: any, index: number, parent: any) => {
     if (isVideo(node)) {
-      console.log('VIDEO');
       let youtube_allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
       /*
-        <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/tXyPTq5O39o?start=123"
-        title="YouTube video player"
-        frameborder="0"
-        allow=" allowfullscreen></iframe>
-        <clip youtube_id="tXyPTq5O39o" t="123"/>
-   
+        Convert
+          <youtube id="tXyPTq5O39o" t="123"/>
+        into
+           <iframe width="560" height="315"
+             src="https://www.youtube.com/embed/tXyPTq5O39o?start=123"
+             title="YouTube video player"
+             frameborder="0"
+             allow="..." allowfullscreen>
+           </iframe>
       */
 
 
@@ -75,7 +74,6 @@ export default (options: any) => {
   }
 
   const transform = (tree: any) => {
-    //console.log('TRANSFORM', tree);
     visit(tree, 'element', visitor)
   }
 
