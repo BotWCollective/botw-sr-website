@@ -18,6 +18,17 @@ export async function loginRequired(req: NextApiRequest, res: NextApiResponse, a
   return user;
 }
 
+export async function loginRequiredFn(req: NextApiRequest,
+  res: NextApiResponse,
+  allowed_roles: string[] = [],
+  onError: (res: NextApiResponse) => any) {
+  const user = loginRequired(req, res, allowed_roles);
+  if (!user) {
+    onError(res);
+  }
+  return user;
+}
+
 export async function loginDetails(req: NextApiRequest) {
   const session = await getLoginSession(req);
   const user = (session && (await findUser(session))) ?? null;

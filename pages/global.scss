@@ -91,3 +91,80 @@ a {
 p {
   font-family: 'Atkinson Hyperlegible', 'Inter', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
+
+.markdown {
+    h1, h2, h3{
+        margin-top: 0.2em;
+        margin-bottom: 0.5em;
+    }
+
+    h1 {
+        text-decoration: underline
+    }
+    table {
+        border-collapse: collapse;
+    }
+    th {
+        border: 1px solid white;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    td {
+        border: 1px solid white;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+
+.markdown-editor {
+    height: 100%;
+    .cm-editor {
+        height: 100%;
+        width: 100%;
+    }
+    .cm-scroller {
+        overflow: auto;
+    }
+}
+
+
+// Add a dashed line under jargon terms
+.jargon-term {
+    text-decoration: underline solid #228be6;
+}
+// Add a question mark behind/above jargon terms
+.jargon-term::after {
+  content: "?";
+  font-weight: bold;
+  display: inline-block;
+  transform: translate(0, -0.5em);
+  font-size: 75%;
+  color: #228be6;
+  margin-left: 3px;
+}
+// Hover behavior for the therm itself
+.jargon-term:hover {
+  position: relative;
+  text-decoration: none;
+  cursor: help;
+}
+// Hide info by default
+.jargon-term .jargon-info {
+  display: none
+}
+// Show info on hover
+.jargon-term:hover .jargon-info {
+  display: block;
+  position: absolute;
+  bottom: 1.0em;
+  left: 2em;
+  background: #F8F8F8;
+  border: 1px solid #DCDCDC;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 90%;
+  min-width: 250px;
+  max-width: 450px;
+  z-index: 1;
+  color: black;
+}

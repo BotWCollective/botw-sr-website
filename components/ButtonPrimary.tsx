@@ -4,10 +4,11 @@ import Link from 'next/link';
 type Props = {
   children?: string
   href?: string
+  onClick?: any
 }
 
-const ButtonPrimary = ({children, href = "#"}: Props) => (
-  <Link href={href}><a className={styles.button}>{children}</a></Link>
+const ButtonPrimary = ({children, href = "#", onClick=""}: Props) => (
+  <Link href={href} ><a onClick={onClick} className={styles.button}>{children}</a></Link>
 );
 
 export default ButtonPrimary;

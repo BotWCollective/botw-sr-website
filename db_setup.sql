@@ -29,6 +29,25 @@ create table if not exists user_roles (
   role_id text
 );
 
+create table status_enum (
+  id integer PRIMARY KEY AUTOINCREMENT,
+  status text UNIQUE NOT NULL
+);
+
+insert into status_enum (status) VALUES ('draft');
+insert into status_enum (status) VALUES ('review');
+insert into status_enum (status) VALUES ('publish');
+
+create table if not exists articles (
+  id text not null unique,
+  title text not null,
+  text text not null,
+  created text not null,
+  author_id text not null,
+  status_id integer not null,
+  FOREIGN KEY(status_id) REFERENCES status_enum(id)
+);
+
 
 CREATE VIRTUAL TABLE if not exists
   notes_fts using fts5(content="", text, video_id, run_id);

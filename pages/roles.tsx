@@ -1,28 +1,7 @@
 import { useUser } from '../lib/hooks'
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
-
-async function fetcher(url, method, data={}) {
-    try {
-        const options = gen_options(method, data);
-        const res = await fetch(url, options);
-        if(res.ok) {
-            return {data:  await res.json()};
-        }
-        throw new Error(`${res.status}: ${res.statusText} ${res.url}`);
-    } catch (err) {
-        return {error : err.message};
-    }
-}
-
-function gen_options(method, data) {
-    let opts = { method }
-    if(method != 'GET' && method != 'BODY') {
-        opts.headers = { 'Content-Type': 'application/json' };
-        opts.body = JSON.stringify(data);
-    }
-    return opts;
-}
+import { fetcher } from '@/lib/fetcher'
 
 const Roles = () => {
     const user = useUser({ redirectTo: '/' })
